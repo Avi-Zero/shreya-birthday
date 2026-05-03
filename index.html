@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Shreya 🎂</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  text-align: center;
+  background: linear-gradient(135deg, #ff758c, #ff7eb3);
+  color: white;
+  overflow: hidden;
+}
+
+/* Glow Title */
+h1 {
+  font-size: 50px;
+  margin-top: 60px;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px #fff; }
+  to { text-shadow: 0 0 30px #ff004c; }
+}
+
+/* Button */
+button {
+  padding: 12px 25px;
+  font-size: 18px;
+  border: none;
+  border-radius: 20px;
+  background: white;
+  color: #ff4b5c;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Surprise Message */
+#surprise {
+  display: none;
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+/* Gallery */
+.gallery img {
+  width: 140px;
+  border-radius: 15px;
+  margin: 5px;
+}
+
+/* Floating Hearts */
+.heart {
+  position: absolute;
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+@keyframes float {
+  from { transform: translateY(100vh); }
+  to { transform: translateY(-10vh); }
+}
+
+/* Cake */
+#cake {
+  display: none;
+  font-size: 80px;
+  margin-top: 20px;
+}
+
+/* Fireworks */
+.firework {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: white;
+  border-radius: 50%;
+  animation: explode 1s linear infinite;
+}
+@keyframes explode {
+  from { transform: scale(1); opacity: 1; }
+  to { transform: scale(20); opacity: 0; }
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- Music -->
+
+<audio autoplay loop>
+<source src="https://www2.cs.uic.edu/~i101/SoundFiles/HappyBirthday.mid" type="audio/mp3">
+</audio>
+
+<h1>🎉 Happy Birthday Shreya 🎉</h1>
+<p id="typing"></p>
+
+<button onclick="showAll()">Click for Surprise 🎁</button>
+
+<div id="surprise">
+  💖 You are the best sister ever 💖<br>
+  May your life be full of happiness, success and love ❤️
+</div>
+
+<div id="cake">🎂</div>
+
+<div class="gallery">
+  <img src="https://ibb.co/yntGjKd0">
+  <img src="https://ibb.co/tMRX5dv2">
+  <img src="https://ibb.co/4R6SLLvv">
+</div>
+
+<script>
+
+/* Typing Effect */
+let text = "You are special, amazing and loved 💫";
+let i = 0;
+function typing() {
+  if (i < text.length) {
+    document.getElementById("typing").innerHTML += text.charAt(i);
+    i++;
+    setTimeout(typing, 50);
+  }
+}
+typing();
+
+/* Surprise */
+function showAll() {
+  document.getElementById("surprise").style.display = "block";
+  document.getElementById("cake").style.display = "block";
+  fireworks();
+}
+
+/* Floating Hearts */
+setInterval(() => {
+  let heart = document.createElement("div");
+  heart.innerHTML = "💖";
+  heart.className = "heart";
+  heart.style.left = Math.random() * 100 + "vw";
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 6000);
+}, 300);
+
+/* Fireworks */
+function fireworks() {
+  setInterval(() => {
+    let fw = document.createElement("div");
+    fw.className = "firework";
+    fw.style.left = Math.random() * 100 + "vw";
+    fw.style.top = Math.random() * 100 + "vh";
+    document.body.appendChild(fw);
+
+    setTimeout(() => fw.remove(), 1000);
+  }, 200);
+}
+
+</script>
+
+</body>
+</html>
